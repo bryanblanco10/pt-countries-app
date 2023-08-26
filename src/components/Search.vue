@@ -15,11 +15,24 @@
 			type="search"
 			class="w-full lg:w-[500px] md:w-[350px] input-search dark:bg-[#273b47] dark:text-white shadow-md dark:placeholder:text-white"
 			placeholder="Search for a country..."
+			v-model="search"
+			@keyup="searchCountry"
+			@search="searchCountry"
 		/>
 	</div>
 </template>
 
-<script setup lang="ts"></script>
+<script setup lang="ts">
+import { ref } from 'vue';
+import { useStore } from 'vuex';
+const search = ref('');
+const store = useStore();
+
+const searchCountry = () => {
+	store.dispatch('updateSearch', search.value);
+	store.dispatch('filterCountries');
+};
+</script>
 
 <style>
 .group-search {

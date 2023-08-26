@@ -1,3 +1,1 @@
-export const useCountries = () => {
-	return {};
-};
+export { useCountries } from './country';
