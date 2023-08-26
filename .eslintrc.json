@@ -1,0 +1,25 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true,
+  },
+  "root": true,
+  "parser": "vue-eslint-parser",
+  "parserOptions": {
+      "parser": "@typescript-eslint/parser",
+      "project": "./tsconfig.json"
+  },
+  "extends": [
+      "plugin:vue/vue3-recommended",
+      "@vue/typescript/recommended",
+      "@vue/eslint-config-standard-with-typescript",
+      "eslint:recommended",
+      "prettier",
+  ],
+  "plugins": ["@typescript-eslint", "prettier"],
+  "rules": {
+      "prettier/prettier": "error",
+      // not needed for vue 3
+      "vue/no-multiple-template-root": "off"
+  }
+}
