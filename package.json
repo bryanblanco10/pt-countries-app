@@ -8,7 +8,8 @@
 		"build": "vue-tsc && vite build",
 		"preview": "vite preview",
 		"lint": "eslint src --ext .ts,.vue",
-		"lint:fix": "eslint src --ext .ts,.vue --fix"
+		"lint:fix": "eslint src --ext .ts,.vue --fix",
+		"deploy": "gh-pages -d dist"
 	},
 	"dependencies": {
 		"@heroicons/vue": "^2.0.18",
