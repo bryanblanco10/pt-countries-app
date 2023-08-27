@@ -1,18 +1,20 @@
 <template>
-	<div
-		class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid-cols-1 gap-14"
-		v-if="countries.length > 0"
-	>
+	<transition name="fade">
 		<div
-			class="border border-gray-300 rounded p-3"
-			v-for="country in countries"
+			class="grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 grid-cols-1 gap-14 px-8 md:px-0 lg:px-0"
+			v-if="countries.length > 0"
 		>
-			<card-country :country="country" />
+			<div
+				class="border border-none shadow-md dark:shadow-lg rounded dark:bg-[#273b47]"
+				v-for="country in countries"
+			>
+				<card-country :country="country" />
+			</div>
 		</div>
-	</div>
-	<div class="text-center" v-else>
-		<p class="text-xl font-semibold">No se encontraron resultados</p>
-	</div>
+		<div class="text-center" v-else>
+			<p class="text-xl font-semibold">No se encontraron resultados</p>
+		</div>
+	</transition>
 </template>
 
 <script setup lang="ts">

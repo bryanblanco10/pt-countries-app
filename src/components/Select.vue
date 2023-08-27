@@ -3,6 +3,7 @@
 		:options="options"
 		v-model="selected"
 		class="style-chooser w-1/2 lg:w-[200px] md:w-[200px] dark:bg-[#273b47] dark:text-white shadow-md dark:placeholder:text-white"
+		:class="{ 'style-chooser-dark': isDark }"
 		label="name"
 		placeholder="Filter by Region"
 		@update:modelValue="filteredCountries()"
@@ -17,6 +18,8 @@ import { useStore } from 'vuex';
 const options: string[] = ['Africa', 'America', 'Asia', 'Europe', 'Oceania'];
 const selected = ref('');
 const store = useStore();
+import { useDark } from '@vueuse/core';
+const isDark = useDark();
 
 const filteredCountries = () => {
 	store.dispatch('updateRegion', selected.value);
@@ -40,5 +43,17 @@ const filteredCountries = () => {
 }
 .style-chooser {
 	border-radius: 8px;
+}
+
+.style-chooser-dark .vs__open-indicator,
+.style-chooser-dark .vs__clear {
+	fill: #ffffff !important;
+}
+.style-chooser-dark .vs__dropdown-toggle,
+.style-chooser-dark .vs__dropdown-menu,
+.style-chooser-dark .vs__search,
+.style-chooser-dark .vs__selected {
+	color: white !important;
+	background-color: #273b47 !important;
 }
 </style>

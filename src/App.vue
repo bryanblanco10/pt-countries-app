@@ -1,6 +1,6 @@
 <template>
 	<Header />
-	<div class="container px-5 py-5 lg:mx-20 lg:py-10">
+	<div class="mx-6 md:container md:mx-auto py-12">
 		<router-view></router-view>
 	</div>
 </template>
